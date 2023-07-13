@@ -30,9 +30,10 @@ const StyledButton = styled.button`
 `;
 
 const IndexPage = ({ props }) => {
-  const query = new URLSearchParams(window.location.search);
+  const query =
+    window?.location.search && new URLSearchParams(window?.location.search);
 
-  const versionQuery = query.get("version");
+  const versionQuery = query?.get("version");
   let showShotGunDefault = false;
 
   if (versionQuery && versionQuery === "shotgum") {
