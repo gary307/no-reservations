@@ -8,12 +8,116 @@ import ImageBg4 from "../images/bg/4.jpg";
 import ImageBg5 from "../images/bg/5.jpg";
 import ImageBg6 from "../images/bg/6.jpg";
 import ImageBg7 from "../images/bg/7.jpg";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyles = createGlobalStyle`
+
+html {
+  font-family: Lato,PT Sans,sans-serif;
+  color: #eee;
+  background: #000;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+body {
+  margin: 0;
+  font-family: Lato,PT Sans,sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 2;
+  font-family: "Fjalla One", sans-serif;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 48px;
+  font-family: "Fjalla One", sans-serif;
+}
+
+h4 {
+  font-family: "Arvo", serif;
+  line-height: 48px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 30px;
+  margin-bottom: 24px;
+  font-family: Lato,PT Sans,sans-serif;
+}
+
+a {
+  line-height: 24px;
+  color: #e50e07;
+  text-decoration: none;
+}
+
+h2,
+h3 {
+  mask-image: url("../images/mask.png");
+}
+
+.leading {
+  font-size: 18px;
+  font-family: "Arvo", serif;
+}
+
+.status {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 900;
+}
+
+.linkRed {
+  color: #e50e07;
+}
+
+.footer {
+  margin-top: auto;
+
+}
+
+.footer p {
+  font-size: 14px;
+}
+
+.dialog-enter {
+  opacity: 0;
+}
+
+.dialog-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.dialog-exit {
+  opacity: 1;
+}
+.dialog-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+`;
 
 const Reservations = () => {
   return (
     <>
-      <Header backgroundImage={ImageBg1} />
-      <Slide slideId="#slide1" backgroundImage={ImageBg2} direction="left">
+      <GlobalStyles />
+      <Header backgroundImage={ImageBg1} slideId={1} />
+      <Slide slideId={2} backgroundImage={ImageBg2} direction="left">
         <h2>About Us</h2>
         <p className="leading">
           No Reservations Entertainment is a newly-established film production
@@ -41,7 +145,7 @@ const Reservations = () => {
         </p>
       </Slide>
 
-      <Slide slideId="#slide2" backgroundImage={ImageBg3} direction="right">
+      <Slide slideId={3} backgroundImage={ImageBg3} direction="right">
         <p className="status">Available now</p>
         <h2>Iceland Is Best</h2>
         <p>
@@ -70,7 +174,7 @@ const Reservations = () => {
         </p>
       </Slide>
 
-      <Slide slideId="#slide4" backgroundImage={ImageBg4} direction="left">
+      <Slide slideId={4} backgroundImage={ImageBg4} direction="left">
         <p className="status">Coming soon</p>
         <h2>Firebird</h2>
         <p>
@@ -95,7 +199,7 @@ const Reservations = () => {
         <p>Scheduled for release in late 2021/early 2022.</p>
       </Slide>
 
-      <Slide slideId="#slide5" backgroundImage={ImageBg5} direction="right">
+      <Slide slideId={5} backgroundImage={ImageBg5} direction="right">
         <p className="status">Pre-production</p>
         <h2>Wrong Place, Wrong Time</h2>
         <p>
@@ -114,7 +218,7 @@ const Reservations = () => {
         </p>
       </Slide>
 
-      <Slide slideId="#slide6" backgroundImage={ImageBg6} direction="left">
+      <Slide slideId={6} backgroundImage={ImageBg6} direction="left">
         <p className="status">Development</p>
         <h2>Day Six</h2>
         <p>
@@ -132,7 +236,7 @@ const Reservations = () => {
       </Slide>
 
       <Slide
-        slideId="#slide7"
+        slideId={7}
         backgroundImage={ImageBg7}
         direction="right"
         hideFooterAction={true}

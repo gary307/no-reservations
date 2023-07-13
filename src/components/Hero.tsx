@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 import LogoSvg from "./../images/logo.svg";
+import LogoShotGun from "./../images/logo_shotgum.png";
 import { ButtonBottom } from "./Slide";
 
 const Reveal = styled.div`
@@ -38,12 +39,43 @@ const HeaderWrapper = styled.header`
   align-items: center;
 `;
 
-const Header = ({ backgroundImage }) => (
-  <HeaderWrapper backgroundImage={backgroundImage}>
-    <Reveal />
-    <Logo>No Reservations</Logo>
-    <ButtonBottom>More</ButtonBottom>
-  </HeaderWrapper>
-);
+const StyledImg = styled.img`
+  width: 300px;
+  display: block;
+`;
+
+const LogosWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+`;
+
+const Header = ({ backgroundImage, theme, slideId }) => {
+  const moveSlide = (slideId) => {
+    const element = document.getElementById(`slide${slideId}`);
+    element?.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+  };
+  return (
+    <HeaderWrapper backgroundImage={backgroundImage} id={`slide${slideId}`}>
+      <Reveal />
+      <LogosWrapper>
+        {theme === "dark" ? (
+          <StyledImg src={LogoShotGun} />
+        ) : (
+          <Logo>No Reservations</Logo>
+        )}
+      </LogosWrapper>
+
+      <ButtonBottom onClick={() => moveSlide(slideId + 1)} theme={theme}>
+        More
+      </ButtonBottom>
+    </HeaderWrapper>
+  );
+};
 
 export default Header;
