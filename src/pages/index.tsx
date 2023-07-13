@@ -30,17 +30,17 @@ const StyledButton = styled.button`
 `;
 
 const IndexPage = ({ props }) => {
-  const query =
-    window?.location.search && new URLSearchParams(window?.location.search);
+  const [showShotGun, setShowSHotGun] = React.useState(false);
 
-  const versionQuery = query?.get("version");
-  let showShotGunDefault = false;
+  React.useEffect(() => {
+    const query =
+      window?.location.search && new URLSearchParams(window?.location.search);
 
-  if (versionQuery && versionQuery === "shotgum") {
-    showShotGunDefault = true;
-  }
-
-  const [showShotGun, setShowSHotGun] = React.useState(showShotGunDefault);
+    if (query) {
+      const versionQuery = query?.get("version");
+      versionQuery === "shotgum" && setShowSHotGun(true);
+    }
+  }, []);
 
   return (
     <main style={pageStyles}>
