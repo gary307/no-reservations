@@ -59,6 +59,8 @@ const SlideWrapper = styled.section`
 
 const SlideContent = styled.div`
   padding: 30px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   background: black;
   display: flex;
   flex-direction: column;

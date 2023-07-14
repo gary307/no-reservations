@@ -19,11 +19,15 @@ const Logo = styled.h1`
   text-indent: 150%;
   white-space: nowrap;
   overflow: hidden;
-
+  max-width: 90%;
   width: 17.5em;
   height: 5.18em;
   background: url(${LogoSvg}) no-repeat;
   background-size: contain;
+
+  @media (max-width: 500px) {
+    max-width: 300px;
+  }
 `;
 
 const HeaderWrapper = styled.header`

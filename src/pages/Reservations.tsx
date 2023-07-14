@@ -4,7 +4,8 @@ import Slide from "../components/Slide";
 import ImageBg1 from "../images/bg/1.jpg";
 import ImageBg2 from "../images/bg/2.jpg";
 import ImageBg3 from "../images/bg/3.jpg";
-import ImageBg4 from "../images/bg/4.jpg";
+import ImageBg4 from "../images/bg/firebird.jpg";
+import ImagePortraits from "../images/bg/portraits.png";
 import ImageBg5 from "../images/bg/5.jpg";
 import ImageBg6 from "../images/bg/6.jpg";
 import ImageBg7 from "../images/bg/7.jpg";
@@ -147,7 +148,9 @@ const Reservations = () => {
 
       <Slide slideId={3} backgroundImage={ImageBg3} direction="right">
         <p className="status">Available now</p>
+
         <h2>Iceland Is Best</h2>
+
         <p>
           Sigga, 17, tells her parents she is leaving her beautiful Icelandic
           fishing village to become a poet. In California. Her grandpa has just
@@ -172,9 +175,28 @@ const Reservations = () => {
           Currently available on home entertainment in North America and to be
           released in the UK late Summer 2021.
         </p>
+
+        <a
+          href="https://www.youtube.com/watch?v=5tQtj3LitPs&t=47s"
+          target="_blank"
+        >
+          TRAILER
+        </a>
       </Slide>
 
-      <Slide slideId={4} backgroundImage={ImageBg4} direction="left">
+      <Slide slideId={4} backgroundImage={ImagePortraits} direction="left">
+        <p className="status">Coming soon</p>
+        <h2>Portraits of Dangerous Women</h2>
+        <p>
+          A bored teacher, bold caretaker, passionate art dealer and young
+          maverick meet through a bizarre road accident. At first they don't
+          seem to have much in common, but they soon develop a genuine interest
+          in each other, and as their pasts unravel, forge odd alliances and
+          friendships.
+        </p>
+      </Slide>
+
+      <Slide slideId={5} backgroundImage={ImageBg4} direction="right">
         <p className="status">Coming soon</p>
         <h2>Firebird</h2>
         <p>
@@ -197,9 +219,11 @@ const Reservations = () => {
           Written by Peeter Rebane and Tom Prior, directed by Peeter Rebane.
         </p>
         <p>Scheduled for release in late 2021/early 2022.</p>
+
+        <a href="https://www.youtube.com/watch?v=D7XT9OWifHs">TRAILER</a>
       </Slide>
 
-      <Slide slideId={5} backgroundImage={ImageBg5} direction="right">
+      <Slide slideId={6} backgroundImage={ImageBg5} direction="right">
         <p className="status">Pre-production</p>
         <h2>Wrong Place, Wrong Time</h2>
         <p>
@@ -218,7 +242,7 @@ const Reservations = () => {
         </p>
       </Slide>
 
-      <Slide slideId={6} backgroundImage={ImageBg6} direction="left">
+      <Slide slideId={7} backgroundImage={ImageBg6} direction="left">
         <p className="status">Development</p>
         <h2>Day Six</h2>
         <p>
@@ -236,7 +260,7 @@ const Reservations = () => {
       </Slide>
 
       <Slide
-        slideId={7}
+        slideId={8}
         backgroundImage={ImageBg7}
         direction="right"
         hideFooterAction={true}
