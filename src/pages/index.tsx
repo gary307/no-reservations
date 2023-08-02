@@ -20,7 +20,7 @@ const StyledNav = styled.nav`
   box-sizing: border-box;
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<{ active: boolean }>`
   all: unset;
   cursor: pointer;
   color: ${(props) => (props.active ? "#fff" : " #ccc")};

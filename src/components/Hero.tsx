@@ -26,11 +26,11 @@ const Logo = styled.h1`
   background-size: contain;
 
   @media (max-width: 500px) {
-    max-width: 300px;
+    max-width: 180px;
   }
 `;
 
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled.header<{ backgroundImage: string }>`
   background-attachment: fixed;
   background-image: url(${(props) => props.backgroundImage});
   height: 100vh;
@@ -44,6 +44,10 @@ const HeaderWrapper = styled.header`
 `;
 
 const StyledImg = styled.img`
+  @media (max-width: 500px) {
+    max-width: 180px;
+  }
+
   width: 300px;
   display: block;
 `;
@@ -55,7 +59,15 @@ const LogosWrapper = styled.div`
   gap: 40px;
 `;
 
-const Header = ({ backgroundImage, theme, slideId }) => {
+const Header = ({
+  backgroundImage,
+  themeColor,
+  slideId,
+}): React.ReactElement<{
+  theme?: string;
+  slideId: number;
+  backgroundImage: string;
+}> => {
   const moveSlide = (slideId) => {
     const element = document.getElementById(`slide${slideId}`);
     element?.scrollIntoView({
@@ -68,14 +80,17 @@ const Header = ({ backgroundImage, theme, slideId }) => {
     <HeaderWrapper backgroundImage={backgroundImage} id={`slide${slideId}`}>
       <Reveal />
       <LogosWrapper>
-        {theme === "dark" ? (
+        {themeColor === "dark" ? (
           <StyledImg src={LogoShotGun} />
         ) : (
           <Logo>No Reservations</Logo>
         )}
       </LogosWrapper>
 
-      <ButtonBottom onClick={() => moveSlide(slideId + 1)} theme={theme}>
+      <ButtonBottom
+        onClick={() => moveSlide(slideId + 1)}
+        themeColor={themeColor}
+      >
         More
       </ButtonBottom>
     </HeaderWrapper>

@@ -117,7 +117,7 @@ const Reservations = () => {
   return (
     <>
       <GlobalStyles />
-      <Header backgroundImage={ImageBg1} slideId={1} />
+      <Header backgroundImage={ImageBg1} slideId={1} themeColor="light" />
       <Slide slideId={2} backgroundImage={ImageBg2} direction="left">
         <h2>About Us</h2>
         <p className="leading">

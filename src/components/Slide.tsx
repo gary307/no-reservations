@@ -34,7 +34,10 @@ const SlideContainer = styled.div`
   }
 `;
 
-const SlideWrapper = styled.section`
+const SlideWrapper = styled.section<{
+  backgroundImage: string;
+  direction: string;
+}>`
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -57,7 +60,7 @@ const SlideWrapper = styled.section`
   }
 `;
 
-const SlideContent = styled.div`
+const SlideContent = styled.div<{ direction: string }>`
   padding: 30px;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -79,8 +82,9 @@ const SlideContent = styled.div`
   }
 `;
 
-const Button = styled.a`
-  background: ${(props) => (props.theme === "dark" ? "yellow" : "#e50e07")};
+const Button = styled.a<{ themeColor?: string }>`
+  background: ${(props) =>
+    props.themeColor === "dark" ? "yellow" : "#e50e07"};
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 10px;
@@ -101,13 +105,15 @@ const ButtonTop = styled(Button)`
     border-radius: 0 0 48px 48px;
     top: 0;
     line-height: 30px;
-    background: ${(props) => (props.theme === "dark" ? "yellow" : "#cc0c06")};
+    background: ${(props) =>
+      props.themeColor === "dark" ? "yellow" : "#cc0c06"};
   }
 `;
 
 export const ButtonBottom = styled(Button)`
   && {
-    background: ${(props) => (props.theme === "dark" ? "yellow" : "#e50e07")};
+    background: ${(props) =>
+      props.themeColor === "dark" ? "yellow" : "#e50e07"};
     line-height: 42px;
     border-radius: 48px 48px 0 0;
     bottom: 0;
@@ -130,8 +136,14 @@ const Slide = ({
   backgroundImage,
   direction = "left",
   hideFooterAction = false,
-  theme = "light",
-}) => {
+  themeColor = "light",
+}): React.ReactElement<{
+  slideId: string;
+  backgroundImage: string;
+  direction: string;
+  hideFooterAction: boolean;
+  themeColor: string;
+}> => {
   const moveSlide = (slideId) => {
     const element = document.getElementById(`slide${slideId}`);
     element?.scrollIntoView({
@@ -149,14 +161,20 @@ const Slide = ({
         backgroundImage={backgroundImage}
         direction={direction}
       >
-        <ButtonTop theme={theme} onClick={() => moveSlide(slideId - 1)}>
+        <ButtonTop
+          themeColor={themeColor}
+          onClick={() => moveSlide(slideId - 1)}
+        >
           Back
         </ButtonTop>
         <SlideContent direction={direction}>{children}</SlideContent>
 
         <SlideImage src={backgroundImage} />
         {hideFooterAction ? null : (
-          <ButtonBottom theme={theme} onClick={() => moveSlide(slideId + 1)}>
+          <ButtonBottom
+            themeColor={themeColor}
+            onClick={() => moveSlide(slideId + 1)}
+          >
             More
           </ButtonBottom>
         )}

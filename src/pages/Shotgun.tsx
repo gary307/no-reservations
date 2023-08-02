@@ -121,12 +121,12 @@ const Shotgun = () => {
   return (
     <>
       <GlobalStyles />
-      <Header backgroundImage={ImageBg1} theme="dark" slideId={1} />
+      <Header backgroundImage={ImageBg1} themeColor="dark" slideId={1} />
       <Slide
         slideId={2}
         backgroundImage={ImageBg2}
         direction="left"
-        theme="dark"
+        themeColor="dark"
       >
         <h2>One stop pick-up shop.</h2>
 
@@ -140,7 +140,7 @@ const Shotgun = () => {
         slideId={3}
         backgroundImage={ImageBg3}
         direction="right"
-        theme="dark"
+        themeColor="dark"
       >
         <h2>Why shot-gum?</h2>
         <p>
@@ -158,7 +158,7 @@ const Shotgun = () => {
         slideId={4}
         backgroundImage={ImageBg4}
         direction="left"
-        theme="dark"
+        themeColor="dark"
       >
         <h2>It’s what we do</h2>
         <ul>
@@ -185,7 +185,7 @@ const Shotgun = () => {
         slideId={5}
         backgroundImage={ImageBg5}
         direction="right"
-        theme="dark"
+        themeColor="dark"
       >
         <h2>Why virtual production? </h2>
         <p>
