@@ -117,7 +117,7 @@ h3 {
 
 `;
 
-const Shotgun = () => {
+const Shotgum = () => {
   return (
     <>
       <GlobalStyles />
@@ -200,4 +200,4 @@ const Shotgun = () => {
   );
 };
 
-export default Shotgun;
+export default Shotgum;

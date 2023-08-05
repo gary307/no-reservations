@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import Shotgun from "./Shotgun";
+import Shotgun from "./Shotgum";
 import Reservations from "./Reservations";
 
 const pageStyles = {
@@ -29,16 +29,24 @@ const StyledButton = styled.button<{ active: boolean }>`
   text-transform: uppercase;
 `;
 
+const Wrapper = styled.div<{ show: boolean }>`
+  opacity: ${(props) => (props.show ? "1" : "0")};
+  transition: opacity 1.5s ease;
+`;
+
 const IndexPage = ({ props }) => {
-  const [showShotGun, setShowSHotGun] = React.useState(false);
+  const [showShotGum, setShowSHotGum] = React.useState(false);
+  const [showContent, setShowContent] = React.useState(false);
 
   React.useEffect(() => {
+    setShowContent(true);
+
     const query =
       window?.location.search && new URLSearchParams(window?.location.search);
 
     if (query) {
       const versionQuery = query?.get("version");
-      versionQuery === "shotgum" && setShowSHotGun(true);
+      versionQuery === "shotgum" && setShowSHotGum(true);
     }
   }, []);
 
@@ -46,20 +54,22 @@ const IndexPage = ({ props }) => {
     <main style={pageStyles}>
       <StyledNav>
         <StyledButton
-          active={!showShotGun}
-          onClick={() => setShowSHotGun(!showShotGun)}
+          active={!showShotGum}
+          onClick={() => setShowSHotGum(!showShotGum)}
         >
           No Reservations
         </StyledButton>
         <StyledButton
-          active={showShotGun}
-          onClick={() => setShowSHotGun(!showShotGun)}
+          active={showShotGum}
+          onClick={() => setShowSHotGum(!showShotGum)}
         >
           Shotgum
         </StyledButton>
       </StyledNav>
 
-      {showShotGun ? <Shotgun /> : <Reservations />}
+      <Wrapper show={showContent}>
+        {showShotGum ? <Shotgun /> : <Reservations />}
+      </Wrapper>
     </main>
   );
 };
