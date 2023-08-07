@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
-import LogoSvg from "./../images/logo.svg";
-import LogoShotGun from "./../images/logo_shotgum.png";
+import LogoNR from "./../images/logo_nr_600.png";
+import LogoShotGun from "./../images/logo_shotgum_600.png";
 import { ButtonBottom } from "./Slide";
 
 const Reveal = styled.div`
@@ -13,21 +13,6 @@ const Reveal = styled.div`
   left: 0;
   pointer-events: none;
   display: none;
-`;
-
-const Logo = styled.h1`
-  text-indent: 150%;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 90%;
-  width: 17.5em;
-  height: 5.18em;
-  background: url(${LogoSvg}) no-repeat;
-  background-size: contain;
-
-  @media (max-width: 500px) {
-    max-width: 180px;
-  }
 `;
 
 const HeaderWrapper = styled.header<{ backgroundImage: string }>`
@@ -83,7 +68,7 @@ const Header = ({
         {themeColor === "dark" ? (
           <StyledImg src={LogoShotGun} />
         ) : (
-          <Logo>No Reservations</Logo>
+          <StyledImg src={LogoNR} />
         )}
       </LogosWrapper>
 
