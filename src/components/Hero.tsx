@@ -19,8 +19,9 @@ const HeaderWrapper = styled.header<{ backgroundImage: string }>`
   background-attachment: fixed;
   background-image: url(${(props) => props.backgroundImage});
   height: 100vh;
-  background-size: cover;
-  background-position: 50%;
+  background-size: auto 100vh;
+
+  background-position: top center;
   background-repeat: no-repeat;
   position: relative;
   display: flex;
