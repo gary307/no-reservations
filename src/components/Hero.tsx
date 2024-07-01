@@ -34,7 +34,7 @@ const StyledImg = styled.img`
     max-width: 180px;
   }
 
-  width: 300px;
+  width: 280px;
   display: block;
 `;
 
